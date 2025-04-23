@@ -59,3 +59,112 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Project Setup
+
+- **Clone the repo - git clone https://github.com/Akhil0632/product-app.git**
+- **Open the terminal and change the directory to the project directory**
+- **Create .env and copy .env.example**
+- **Install dependencies - composer install**
+- **Make sure you have your key generated. If not, Generate key with this command - php artisan key:generate**
+- **Run migration - php artisan migrate**
+- **Install Laravel Sanctum:-**
+-   **composer require laravel/sanctum**
+-   **php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"**
+-   **php artisan migrate**
+- **Run Seeder - php artisan db:seed**
+- **Run project - php artisan serve**
+
+## API Endpoints using Postman
+
+**Authentication:**
+
+**Register a User - POST http://127.0.0.1:8000/api/register**
+
+Headers:
+Accept: application/json
+Content-Type: application/json
+
+Body (JSON):
+json
+{
+  "name": "User1",
+  "email": "user1@example.com",
+  "password": "password123",
+  "password_confirmation": "password123"
+}
+
+**Login User - POST http://127.0.0.1:8000/api/login**
+
+Headers:
+Accept: application/json
+Content-Type: application/json
+
+Body (JSON):
+json
+{
+  "email": "test@example.com",
+  "password": "password"
+}
+
+**Logout User - POST http://127.0.0.1:8000/api/logout**
+
+Headers:
+Accept: application/json
+Authorization: Bearer YOUR_ACCESS_TOKEN
+Content-Type: application/json
+
+**Product Routes (Authenticated):**
+
+**Get All Products - GET http://127.0.0.1:8000/api/products**
+
+Headers:
+Accept: application/json
+Authorization: Bearer YOUR_ACCESS_TOKEN
+Content-Type: application/json
+
+Body (JSON):
+json
+{
+  "email": "test@example.com",
+  "password": "password"
+}
+
+**Create New Product - POST http://127.0.0.1:8000/api/products**
+
+Headers:
+Accept: application/json
+Authorization: Bearer YOUR_ACCESS_TOKEN
+Content-Type: application/json
+
+Body (JSON):
+json
+{
+  "name": "Laptop",
+  "price": 999.99,
+  "stock": 50,
+  "status": true
+}
+
+**Update Product - PUT http://127.0.0.1:8000/api/products/{id}**
+
+Headers:
+Accept: application/json
+Authorization: Bearer YOUR_ACCESS_TOKEN
+Content-Type: application/json
+
+Body (JSON):
+json
+{
+  "name": "Updated Laptop",
+  "price": 899.99,
+  "stock": 45,
+  "status": false
+}
+
+**Delete Product - DELETE http://127.0.0.1:8000/api/products/{id}**
+
+Headers:
+Accept: application/json
+Authorization: Bearer YOUR_ACCESS_TOKEN
+Content-Type: application/json
