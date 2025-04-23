@@ -103,8 +103,8 @@ Content-Type: application/json
 Body (JSON):
 json
 {
-  "email": "test@example.com",
-  "password": "password"
+  "email": "user1@example.com",
+  "password": "password123"
 }
 
 **Logout User - POST http://127.0.0.1:8000/api/logout**
